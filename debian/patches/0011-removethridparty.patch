@@ -1,0 +1,20 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 13:25:37 +0200
+Subject: removethridparty
+
+---
+ ubiquity/plugins/ubi-prepare.py | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/ubiquity/plugins/ubi-prepare.py b/ubiquity/plugins/ubi-prepare.py
+index bf2c75c..d734881 100644
+--- a/ubiquity/plugins/ubi-prepare.py
++++ b/ubiquity/plugins/ubi-prepare.py
+@@ -40,6 +40,7 @@ OEM = False
+ 
+ class PreparePageBase(plugin.PluginUI):
+     plugin_title = 'ubiquity/text/prepare_heading_label'
++    self.skip = True
+ 
+     def __init__(self, *args, **kwargs):
+         plugin.PluginUI.__init__(self)

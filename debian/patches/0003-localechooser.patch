@@ -1,0 +1,20 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 13:12:34 +0200
+Subject: localechooser
+
+---
+ d-i/source/localechooser/languagelist | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/d-i/source/localechooser/languagelist b/d-i/source/localechooser/languagelist
+index da23e42..eee1a4a 100644
+--- a/d-i/source/localechooser/languagelist
++++ b/d-i/source/localechooser/languagelist
+@@ -100,6 +100,7 @@ ug;Uyghur;ئۇيغۇرچە;3;CN;ug_CN;;
+ uk;Ukrainian;Українська;2;UA;uk_UA.UTF-8;;console-setup
+ #X ur;Urdu;اردو;3;PK;ur_PK.UTF-8;;console-setup
+ #X ca@valencia;Valencian-Catalan;Valencià-Català;1;ES;ca_ES.UTF-8@valencia;;console-setup
++ca_ES@valencia;Valencian;Valencià;1;ES;UTF-8;ca_ES.UTF-8@valencia;;console-setup
+ vi;Vietnamese;Tiếng Việt;3;VN;vi_VN;;console-setup
+ cy;Welsh;Cymraeg;2;GB;cy_GB.UTF-8;;console-setup
+ #X wo;Wolof;Wolof;2;SN;wo_SN;wo:fr:en;

@@ -1,0 +1,21 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 13:21:28 +0200
+Subject: locale
+
+---
+ ubiquity/frontend/base.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ubiquity/frontend/base.py b/ubiquity/frontend/base.py
+index 0bbd152..adfa7f5 100644
+--- a/ubiquity/frontend/base.py
++++ b/ubiquity/frontend/base.py
+@@ -101,7 +101,7 @@ class BaseFrontend:
+         self.dbfilter_status = None
+         self.resize_choice = None
+         self.manual_choice = None
+-        self.locale = None
++        self.locale = os.environ['LANG']
+         self.wget_retcode = None
+         self.wget_proc = None
+ 

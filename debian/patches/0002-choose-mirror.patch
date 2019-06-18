@@ -1,0 +1,151 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 12:58:29 +0200
+Subject: choose-mirror
+
+---
+ d-i/source/choose-mirror/Makefile                      |  1 +
+ d-i/source/choose-mirror/Mirrors.masterlist.lliurex    |  6 ++++++
+ d-i/source/choose-mirror/choose-mirror.c               |  8 ++++----
+ .../debian/choose-mirror-bin.templates.ftp.base-in     |  4 +---
+ .../debian/choose-mirror-bin.templates.ftp.sel-in      |  4 +---
+ .../debian/choose-mirror-bin.templates.http-in         |  8 ++------
+ d-i/source/choose-mirror/debian/choose-mirror.postinst | 18 ++++++++++--------
+ 7 files changed, 25 insertions(+), 24 deletions(-)
+ create mode 100644 d-i/source/choose-mirror/Mirrors.masterlist.lliurex
+
+diff --git a/d-i/source/choose-mirror/Makefile b/d-i/source/choose-mirror/Makefile
+index 778de7a..b9516eb 100644
+--- a/d-i/source/choose-mirror/Makefile
++++ b/d-i/source/choose-mirror/Makefile
+@@ -35,6 +35,7 @@ STRIP=strip
+ # Derivative distributions may want to change these.
+ #MIRRORLISTURL=https://anonscm.debian.org/git/mirror/mirror-masterlist.git/plain/Mirrors.masterlist
+ MASTERLIST=Mirrors.masterlist.ubuntu
++MASTERLIST=Mirrors.masterlist.lliurex
+ 
+ ifdef DEBUG
+ CFLAGS:=$(CFLAGS) -DDODEBUG
+diff --git a/d-i/source/choose-mirror/Mirrors.masterlist.lliurex b/d-i/source/choose-mirror/Mirrors.masterlist.lliurex
+new file mode 100644
+index 0000000..f4704a5
+--- /dev/null
++++ b/d-i/source/choose-mirror/Mirrors.masterlist.lliurex
+@@ -0,0 +1,6 @@
++Site: lliurex.net
++Type: Push-Primary
++Archive-http: /bionic/
++Archive-architecture: i386 amd64
++Country: ES Spain
++Location: Valencia
+\ No newline at end of file
+diff --git a/d-i/source/choose-mirror/choose-mirror.c b/d-i/source/choose-mirror/choose-mirror.c
+index 8335350..a9590ac 100644
+--- a/d-i/source/choose-mirror/choose-mirror.c
++++ b/d-i/source/choose-mirror/choose-mirror.c
+@@ -730,17 +730,17 @@ static int choose_mirror(void) {
+ 		list = debconf_list(mirrors_in(country));
+ 		debconf_subst(debconf, mir, "mirrors", list);
+ 		if ((debconf_get(debconf, mir) == 0 &&
+-		     strcmp(debconf->value, "CC.archive.ubuntu.com") == 0) ||
++		     strcmp(debconf->value, "lliurex.net") == 0) ||
+ 		    debconf_fget(debconf, mir, "seen") != 0 ||
+ 		    strcmp(debconf->value, "true") != 0) {
+-			countryarchive = get_localized_archive(".archive.ubuntu.com");
++			countryarchive = get_localized_archive(".lliurex.net");
+ 			if (mirror_root(countryarchive))
+ 				debconf_set(debconf, mir, countryarchive);
+ 			free(countryarchive);
+ 		}
+ 		if (debconf_get(debconf, mir) == 0 &&
+-		    strcmp(debconf->value, "CC.ports.ubuntu.com") == 0) {
+-			countryarchive = get_localized_archive(".ports.ubuntu.com");
++		    strcmp(debconf->value, "lliurex.net") == 0) {
++			countryarchive = get_localized_archive(".lliurex.net");
+ 			if (mirror_root(countryarchive))
+ 				debconf_set(debconf, mir, countryarchive);
+ 			free(countryarchive);
+diff --git a/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.ftp.base-in b/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.ftp.base-in
+index 08ea781..f12b092 100644
+--- a/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.ftp.base-in
++++ b/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.ftp.base-in
+@@ -12,9 +12,7 @@ _Description: Ubuntu archive mirror hostname:
+ 
+ Template: mirror/ftp/directory
+ Type: string
+-Default: /ubuntu-ports/
+-Default[amd64]: /ubuntu/
+-Default[i386]: /ubuntu/
++Default: /bionic/
+ # :sl2:
+ _Description: Ubuntu archive mirror directory:
+  Please enter the directory in which the mirror of the Ubuntu archive is
+diff --git a/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.ftp.sel-in b/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.ftp.sel-in
+index 406c9d5..7d3f7b9 100644
+--- a/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.ftp.sel-in
++++ b/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.ftp.sel-in
+@@ -30,9 +30,7 @@ _Description: Ubuntu archive mirror country:
+ Template: mirror/ftp/mirror
+ Type: select
+ Choices: ${mirrors}
+-Default: CC.ports.ubuntu.com
+-Default[amd64]: CC.archive.ubuntu.com
+-Default[i386]: CC.archive.ubuntu.com
++Default: lliurex.net
+ # :sl2:
+ _Description: Ubuntu archive mirror:
+  Please select an Ubuntu archive mirror. You should use a mirror in
+diff --git a/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.http-in b/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.http-in
+index 6c63b42..b94a81e 100644
+--- a/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.http-in
++++ b/d-i/source/choose-mirror/debian/choose-mirror-bin.templates.http-in
+@@ -29,9 +29,7 @@ _Description: Ubuntu archive mirror country:
+ Template: mirror/http/mirror
+ Type: select
+ Choices: ${mirrors}
+-Default: CC.ports.ubuntu.com
+-Default[amd64]: CC.archive.ubuntu.com
+-Default[i386]: CC.archive.ubuntu.com
++Default: lliurex.net
+ # :sl1:
+ _Description: Ubuntu archive mirror:
+  Please select an Ubuntu archive mirror. You should use a mirror in
+@@ -52,9 +50,7 @@ _Description: Ubuntu archive mirror hostname:
+ 
+ Template: mirror/http/directory
+ Type: string
+-Default: /ubuntu-ports/
+-Default[amd64]: /ubuntu/
+-Default[i386]: /ubuntu/
++Default: /bionic/
+ # :sl2:
+ _Description: Ubuntu archive mirror directory:
+  Please enter the directory in which the mirror of the Ubuntu archive is
+diff --git a/d-i/source/choose-mirror/debian/choose-mirror.postinst b/d-i/source/choose-mirror/debian/choose-mirror.postinst
+index 4689ab0..94bb1f7 100644
+--- a/d-i/source/choose-mirror/debian/choose-mirror.postinst
++++ b/d-i/source/choose-mirror/debian/choose-mirror.postinst
+@@ -3,14 +3,16 @@
+ 
+ anna-install apt-mirror-setup || true
+ 
+-if ! db_get mirror/suite || ! [ "$RET" ]; then
+-	if [ -f /etc/lsb-release ]; then
+-		. /etc/lsb-release
+-		if [ -n "$DISTRIB_CODENAME" ]; then
+-			db_set mirror/suite "$DISTRIB_CODENAME"
+-		fi
+-	fi
+-fi
++# if ! db_get mirror/suite || ! [ "$RET" ]; then
++# 	if [ -f /etc/lsb-release ]; then
++# 		. /etc/lsb-release
++# 		if [ -n "$DISTRIB_CODENAME" ]; then
++# 			db_set mirror/suite "$DISTRIB_CODENAME"
++# 		fi
++# 	fi
++# fi
++db_set mirror/suite "bionic" 
++db_set mirror/codename "bionic"
+ 
+ choose-mirror
+ 

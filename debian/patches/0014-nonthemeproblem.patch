@@ -1,0 +1,21 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 13:28:14 +0200
+Subject: nonthemeproblem
+
+---
+ ubiquity/plugins/ubi-language.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ubiquity/plugins/ubi-language.py b/ubiquity/plugins/ubi-language.py
+index 19c979d..ad58bbb 100644
+--- a/ubiquity/plugins/ubi-language.py
++++ b/ubiquity/plugins/ubi-language.py
+@@ -374,7 +374,7 @@ class PageGtk(PageBase):
+             self.updating_installer = False
+         elif uri == 'release-notes':
+             import subprocess
+-            uri = self.release_notes_url.replace('${LANG}', lang)
++            uri = 'http://mestreacasa.gva.es/web/lliurex/lliurex' 
+             subprocess.Popen(['sensible-browser', uri], close_fds=True,
+                              preexec_fn=misc.drop_all_privileges)
+         return True

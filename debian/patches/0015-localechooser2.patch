@@ -1,0 +1,36 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 13:29:13 +0200
+Subject: localechooser2
+
+---
+ d-i/source/localechooser/localechooser | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/d-i/source/localechooser/localechooser b/d-i/source/localechooser/localechooser
+index dc01ccc..fd6612d 100644
+--- a/d-i/source/localechooser/localechooser
++++ b/d-i/source/localechooser/localechooser
+@@ -432,6 +432,10 @@ build_preferredlocale_choices() {
+ 		fi
+ 	done
+ 	choices="$(echo "$choices" | sed 's/#%#/\\,/g')"
++	if [ "$lang" = "ca" ]; then
++	    choices_c="ca_ES.UTF-8@valencia, ${choices_c}"
++	    choices="Valencia\${!TAB}-\${!TAB}ca_ES.UTF-8@valencia, ${choices}"
++	fi
+ 	db_subst $tpl_preferredlocale CHOICES-C "$choices_c"
+ 	db_subst $tpl_preferredlocale CHOICES "$choices"
+ }
+@@ -842,6 +846,12 @@ while :; do
+ 
+ 		askedpreflocale=
+ 		if [ -z "$locale_preseeded" ] && [ "$use_lang" ]; then
++			if [ "$LANGUAGE" = "ca_ES@valencia" ]; then
++			    LOCALE="ca_ES.UTF-8@valencia"
++			    db_set $tpl_di_locale $LOCALE
++			    db_set $tpl_preferredlocale $LOCALE
++			fi
++			log "Llamando a buildpreferred con $LANGUAGE $LOCALE"
+ 			build_preferredlocale_choices $LANGUAGE $LOCALE
+ 
+ 			if has_choice $tpl_shortlist $COUNTRYCODE; then

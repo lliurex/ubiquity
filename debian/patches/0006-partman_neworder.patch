@@ -1,0 +1,21 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 13:19:32 +0200
+Subject: partman_neworder
+
+---
+ ubiquity/plugins/ubi-partman.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ubiquity/plugins/ubi-partman.py b/ubiquity/plugins/ubi-partman.py
+index 0b20850..6a96046 100644
+--- a/ubiquity/plugins/ubi-partman.py
++++ b/ubiquity/plugins/ubi-partman.py
+@@ -31,7 +31,7 @@ from ubiquity.install_misc import archdetect
+ 
+ 
+ NAME = 'partman'
+-AFTER = 'prepare'
++AFTER = 'wireless'
+ WEIGHT = 11
+ # Not useful in oem-config.
+ OEM = False

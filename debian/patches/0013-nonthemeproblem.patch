@@ -1,0 +1,25 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 13:27:32 +0200
+Subject: nonthemeproblem
+
+---
+ scripts/start-ubiquity-dm | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/scripts/start-ubiquity-dm b/scripts/start-ubiquity-dm
+index 517024d..ba953a5 100755
+--- a/scripts/start-ubiquity-dm
++++ b/scripts/start-ubiquity-dm
+@@ -30,6 +30,12 @@ for x in $(cat /proc/cmdline); do
+ 	    ldtp="--ldtp"
+ 	    ;;
+ 	only-ubiquity)
++		# LliureX hack to solve the non-theme problem
++		rm -rf /usr/share/gconf/schemas/*
++		rm -f /usr/share/gconf/defaults/10_libgnome2-common
++		rm -f /usr/share/gconf/defaults/10_libgnome2vfs2-common
++		update-gconf-defaults || true
++		touch /tmp/lliurex-only-ubiquity-schemes.removed
+ 	    ubiquity=1
+ 	    ;;
+ 	noninteractive)

@@ -1,0 +1,20 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 13:23:35 +0200
+Subject: linguas
+
+---
+ po/LINGUAS | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/po/LINGUAS b/po/LINGUAS
+index 50a8477..6bc2675 100644
+--- a/po/LINGUAS
++++ b/po/LINGUAS
+@@ -6,6 +6,7 @@ bg
+ bn
+ bs
+ ca
++ca_ES@valencia
+ cs
+ da
+ de

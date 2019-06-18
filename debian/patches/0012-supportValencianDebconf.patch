@@ -1,0 +1,23 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 13:26:32 +0200
+Subject: supportValencianDebconf
+
+---
+ d-i/source/localechooser/localechooser | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/d-i/source/localechooser/localechooser b/d-i/source/localechooser/localechooser
+index f66a02f..dc01ccc 100644
+--- a/d-i/source/localechooser/localechooser
++++ b/d-i/source/localechooser/localechooser
+@@ -192,6 +192,10 @@ do_preseed() {
+ 		fi
+ 	fi
+ 
++	if [ "$LANG" = "ca_ES.UTF-8@valencia" ]; then
++		ps_language="ca_ES@valencia"
++	fi
++
+ 	db_set $tpl_languagelist $ps_language
+ 	log "Set $tpl_languagelist = '$ps_language'"
+ 	db_fset $tpl_languagelist seen $seenflag || true

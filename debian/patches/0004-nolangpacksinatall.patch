@@ -1,0 +1,40 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 18 Jun 2019 13:14:26 +0200
+Subject: nolangpacksinatall
+
+---
+ ubiquity/install_misc.py | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/ubiquity/install_misc.py b/ubiquity/install_misc.py
+index f67d174..34c2119 100644
+--- a/ubiquity/install_misc.py
++++ b/ubiquity/install_misc.py
+@@ -1122,13 +1122,26 @@ class InstallBase:
+         langpacks_file = '/var/lib/ubiquity/langpacks'
+         if os.path.exists(langpacks_file):
+             osextras.unlink_force(langpacks_file)
++        p1 = subprocess.Popen(['dpkg','-l'],stdout=subprocess.PIPE).communicate()[0]
++        p1 = p1.decode('utf-8')
++        list_packages = p1.split('\n')
++        installed_language_pack = []
++        for package in list_packages:
++            try:
++                package_name = package.split(' ')[2]
++                if package_name.startswith('language-pack-'):
++                    installed_language_pack.append(package_name)
++            except:
++                pass
++
+         if install_new:
+             if save:
+                 if not os.path.exists(os.path.dirname(langpacks_file)):
+                     os.makedirs(os.path.dirname(langpacks_file))
+                 with open(langpacks_file, 'w') as langpacks:
+                     for pkg in to_install:
+-                        print(pkg, file=langpacks)
++                        if pkg not in installed_language_pack:
++                            print(pkg, file=langpacks)
+                 return []
+             else:
+                 return to_install
