@@ -34,6 +34,8 @@ build-indep: build-stamp
 
 build-stamp:
 	dh_testdir
+	$(MAKE) -f /usr/share/quilt/quilt.make patch
+	cp debian/real-po/ca_ES@valencia.po po/
 
 	dh_autoreconf -- ./autogen.sh
 	dh_auto_configure -- --libexecdir=\$${prefix}/lib
