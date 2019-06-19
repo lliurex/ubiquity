@@ -1,0 +1,40 @@
+From: raurodse <raurodse@gmail.com>
+Date: Wed, 19 Jun 2019 22:28:15 +0200
+Subject: llx_lowlatency_fix_part2
+
+---
+ scripts/install.py | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/scripts/install.py b/scripts/install.py
+index 2079733..08251c5 100755
+--- a/scripts/install.py
++++ b/scripts/install.py
+@@ -210,6 +210,13 @@ class Install(install_misc.InstallBase):
+ 
+         return None
+ 
++    def find_lowlatency_kernel(self):
++        for f in os.listdir(self.casper_path):
++            if "vmlinuz" in f and "lowlatency" in f:
++                syslog.syslog("LLIUREX MOD: Adding lowlatency kernel: %s"%f)
++                return os.path.join(self.casper_path,f)
++        return None
++
+     def generate_blacklist(self):
+         manifest_remove = os.path.join(self.casper_path,
+                                        'filesystem.manifest-remove')
+@@ -596,6 +603,13 @@ class Install(install_misc.InstallBase):
+                 # Construct the unsigned kernel.
+                 subprocess.check_call(["sbattach", "--remove", target_kernel])
+ 
++        lkernel = self.find_lowlatency_kernel()
++        if lkernel:
++            target = os.path.join(bootdir,lkernel.split("/")[-1])
++            install_misc.copy_file(self.db, lkernel, target, md5_check)
++            os.lchown(target, 0, 0)
++            os.chmod(target, 0o644)
++
+         os.umask(old_umask)
+ 
+         self.db.progress('SET', 100)

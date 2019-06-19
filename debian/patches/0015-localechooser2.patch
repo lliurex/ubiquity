@@ -1,0 +1,49 @@
+From: raurodse <raurodse@gmail.com>
+Date: Wed, 19 Jun 2019 22:27:14 +0200
+Subject: localechooser2
+
+---
+ d-i/source/localechooser/localechooser | 11 +++++++++++
+ d-i/source/localechooser/mkshort       |  3 +++
+ 2 files changed, 14 insertions(+)
+
+diff --git a/d-i/source/localechooser/localechooser b/d-i/source/localechooser/localechooser
+index dc01ccc..bd8adb0 100644
+--- a/d-i/source/localechooser/localechooser
++++ b/d-i/source/localechooser/localechooser
+@@ -430,6 +430,11 @@ build_preferredlocale_choices() {
+ 		if [ "$locale" = "$default" ]; then
+ 			db_set $tpl_preferredlocale $LOCALE
+ 		fi
++		if [ "$default" = "ca_ES.utf8@valencia" ]; then
++			choices_c="ca_ES.utf8@valencia, ${choices_c}"
++			choices="Valencia\${!TAB}-\${!TAB}ca_ES.UTF-8@valencia, ${choices}"
++			break
++		fi
+ 	done
+ 	choices="$(echo "$choices" | sed 's/#%#/\\,/g')"
+ 	db_subst $tpl_preferredlocale CHOICES-C "$choices_c"
+@@ -842,6 +847,12 @@ while :; do
+ 
+ 		askedpreflocale=
+ 		if [ -z "$locale_preseeded" ] && [ "$use_lang" ]; then
++			if [ "$LANGUAGE" = "ca_ES@valencia" ]; then
++			    LOCALE="ca_ES.utf8@valencia"
++			    db_set $tpl_di_locale $LOCALE
++			    db_set $tpl_preferredlocale $LOCALE
++			fi
++			log "Llamando a buildpreferred con $LANGUAGE $LOCALE"
+ 			build_preferredlocale_choices $LANGUAGE $LOCALE
+ 
+ 			if has_choice $tpl_shortlist $COUNTRYCODE; then
+diff --git a/d-i/source/localechooser/mkshort b/d-i/source/localechooser/mkshort
+index af1d7c9..f48503c 100755
+--- a/d-i/source/localechooser/mkshort
++++ b/d-i/source/localechooser/mkshort
+@@ -78,3 +78,6 @@ for file in debian/short-tmp/*.short; do
+ 	lang=$(basename $file .short)
+ 	echo "$lang" >>$SHORTLISTS
+ done
++
++grep valencia $SHORTLISTS 1>/dev/null 2>/dev/null || echo "ca_ES@valencia" >> $SHORTLISTS
++sort $SHORTLISTS -o $SHORTLISTS

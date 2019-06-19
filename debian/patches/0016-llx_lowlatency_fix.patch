@@ -1,0 +1,45 @@
+From: raurodse <raurodse@gmail.com>
+Date: Wed, 19 Jun 2019 22:27:45 +0200
+Subject: llx_lowlatency_fix
+
+---
+ d-i/source/base-installer/kernel/amd64.sh                    | 5 ++++-
+ d-i/source/base-installer/kernel/tests/amd64/cittagazze.test | 4 +++-
+ 2 files changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/d-i/source/base-installer/kernel/amd64.sh b/d-i/source/base-installer/kernel/amd64.sh
+index efd73a9..35bf302 100644
+--- a/d-i/source/base-installer/kernel/amd64.sh
++++ b/d-i/source/base-installer/kernel/amd64.sh
+@@ -3,7 +3,7 @@ arch_get_kernel_flavour () {
+ }
+ 
+ arch_check_usable_kernel () {
+-	if echo "$1" | grep -Eq -- "-(server|generic|virtual|xen|preempt|rt)(-.*)?$"; then return 0; fi
++	if echo "$1" | grep -Eq -- "-(server|generic|virtual|xen|preempt|rt|lowlatency)(-.*)?$"; then return 0; fi
+ 
+ 	return 1
+ }
+@@ -31,4 +31,7 @@ arch_get_kernel () {
+ 
+ 	echo "linux-rt"
+ 	echo "linux-image-rt"
++
++	echo "linux-lowlatency"
++	echo "linux-image-lowlatency"
+ }
+diff --git a/d-i/source/base-installer/kernel/tests/amd64/cittagazze.test b/d-i/source/base-installer/kernel/tests/amd64/cittagazze.test
+index 264c72f..7e4dff4 100644
+--- a/d-i/source/base-installer/kernel/tests/amd64/cittagazze.test
++++ b/d-i/source/base-installer/kernel/tests/amd64/cittagazze.test
+@@ -13,7 +13,9 @@ kernel-2.6 \
+   linux-preempt \
+   linux-image-preempt \
+   linux-rt \
+-  linux-image-rt
++  linux-image-rt \
++  linux-lowlatency \
++  linux-image-lowlatency
+ usable \
+   linux-generic \
+   linux-server \
