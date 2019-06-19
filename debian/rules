@@ -36,6 +36,7 @@ build-stamp:
 	dh_testdir
 	$(MAKE) -f /usr/share/quilt/quilt.make patch
 	cp debian/real-po/ca_ES@valencia.po po/
+	cp debian/real-po/ca_ES@valencia.po po/ca_ES.utf8@valencia.po
 
 	dh_autoreconf -- ./autogen.sh
 	dh_auto_configure -- --libexecdir=\$${prefix}/lib
