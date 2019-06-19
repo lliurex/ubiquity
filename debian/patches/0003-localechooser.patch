@@ -7,7 +7,7 @@ Subject: localechooser
  1 file changed, 1 insertion(+)
 
 diff --git a/d-i/source/localechooser/languagelist b/d-i/source/localechooser/languagelist
-index da23e42..eee1a4a 100644
+index da23e42..5b7fb36 100644
 --- a/d-i/source/localechooser/languagelist
 +++ b/d-i/source/localechooser/languagelist
 @@ -100,6 +100,7 @@ ug;Uyghur;ئۇيغۇرچە;3;CN;ug_CN;;
