@@ -1,3 +1,9 @@
+ubiquity (18.04.14.12+lliurex3) bionic; urgency=medium
+
+  * Fixed kde partition panel bug
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Thu, 20 Jun 2019 16:27:21 +0200
+
 ubiquity (18.04.14.12+lliurex2) bionic; urgency=medium
 
   * Valencian working
