@@ -1,0 +1,15 @@
+--- /srv/svn/bionic/git/ubiquity/./ubiquity/frontend/kde_components/PartitionModel.py	2019-06-20 16:03:55.153353525 +0200
++++ ./ubiquity/frontend/kde_components/PartitionModel.py	2019-04-08 20:07:45.000000000 +0200
+@@ -63,11 +63,7 @@
+     def setData(self, index, value, role):
+         item = index.internalPointer()
+         if role == QtCore.Qt.CheckStateRole and index.column() == 3:
+-            item.partman_column_format_toggled(value.toBool())
+-        self.emit(
+-            QtCore.SIGNAL(
+-                "dataChanged(const QModelIndex&, const QModelIndex&)"),
+-            index, index)
++            item.partman_column_format_toggled(value)
+         return True
+ 
+     def flags(self, index):
