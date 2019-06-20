@@ -1,8 +1,8 @@
 ubiquity (18.04.14.12+lliurex2) bionic; urgency=medium
 
-  * Fixed kde partition model panel bug
+  * Valencian working
 
- -- Hector Garcia Huerta <hectorgh@gmail.com>  Thu, 20 Jun 2019 16:10:50 +0200
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Wed, 19 Jun 2019 23:32:45 +0200
 
 ubiquity (18.04.14.12+lliurex1) bionic; urgency=medium
 
