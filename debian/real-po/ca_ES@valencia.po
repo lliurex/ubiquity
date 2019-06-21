@@ -1209,7 +1209,7 @@ msgstr "Configuració del sistema"
 #. Description
 #: ../ubiquity.templates:174001 ../ubiquity.templates:243001
 msgid "Welcome"
-msgstr "Us donem la benvinguda a Lliurex 16"
+msgstr "Us donem la benvinguda a Lliurex 19"
 
 #. Type: text
 #. Description
