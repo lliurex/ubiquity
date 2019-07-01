@@ -1,0 +1,21 @@
+diff --git a/d-i/source/grub-installer/grub-installer b/d-i/source/grub-installer/grub-installer
+index 114cdb8ea..47a72917c 100755
+--- a/d-i/source/grub-installer/grub-installer
++++ b/d-i/source/grub-installer/grub-installer
+@@ -190,12 +190,16 @@ update_grub () {
+ 		error "Running '$update_grub_cmd' failed." 1>&2
+ 		db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
+ 		db_go || true
+ 		db_progress STOP
+ 		exit 1
+ 	fi
++	if [ -e /target/boot/efi/EFI/neon/grub.cfg ]; then
++		echo "grub-installer: copying boot/efi/EFI/neon/grub.cfg to boot/efi/EFI/ubuntu for hardcoded grub path"
++		cp /target/boot/efi/EFI/neon/grub.cfg /target/boot/efi/EFI/ubuntu/grub.cfg
++	fi
+ }
+ 
+ findfs () {
+ 	if ! grub_probe -t device $1; then
+ 		mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f1
+ 	fi
