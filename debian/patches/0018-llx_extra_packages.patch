@@ -16,8 +16,8 @@ index dc82be4..411797e 100755
  
 +        # Lliurex Packages
 +        self.lliurex_pkgs = []
-+        if os.path.exists('/var/lib/ubiquity/lliurex-extra-packages'):
-+            with open('/var/lib/ubiquity/lliurex-extra-packages') as llx_pkg:
++        if os.path.exists('/run/user/999/ubiquity/lliurex-extra-packages'):
++            with open('/run/user/999/ubiquity/lliurex-extra-packages') as llx_pkg:
 +                for line in llx_pkg:
 +                    self.lliurex_pkgs.append(line.strip())
 +
