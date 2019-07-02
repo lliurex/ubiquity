@@ -1,3 +1,9 @@
+ubiquity (18.04.14.12+lliurex6) bionic; urgency=medium
+
+  * Changed lliurex-extra-packages file location
+
+ -- Hector Garcia Huerta <hectorgh@gmail.com>  Tue, 02 Jul 2019 14:39:24 +0200
+
 ubiquity (18.04.14.12+lliurex5) bionic; urgency=medium
 
   * Added neon efi patch
