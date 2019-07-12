@@ -1,11 +1,16 @@
+From: Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>
+Date: Thu, 11 Jul 2019 14:32:56 +0200
+Subject: neon-efi
+
+---
+ d-i/source/grub-installer/grub-installer | 4 ++++
+ 1 file changed, 4 insertions(+)
+
 diff --git a/d-i/source/grub-installer/grub-installer b/d-i/source/grub-installer/grub-installer
-index 114cdb8ea..47a72917c 100755
+index 114cdb8..47a7291 100755
 --- a/d-i/source/grub-installer/grub-installer
 +++ b/d-i/source/grub-installer/grub-installer
-@@ -190,12 +190,16 @@ update_grub () {
- 		error "Running '$update_grub_cmd' failed." 1>&2
- 		db_input critical grub-installer/update-grub-failed || [ $? -eq 30 ]
- 		db_go || true
+@@ -193,6 +193,10 @@ update_grub () {
  		db_progress STOP
  		exit 1
  	fi
@@ -16,6 +21,3 @@ index 114cdb8ea..47a72917c 100755
  }
  
  findfs () {
- 	if ! grub_probe -t device $1; then
- 		mount | grep "on $ROOT${1%/} " | tail -n1 | cut -d' ' -f1
- 	fi

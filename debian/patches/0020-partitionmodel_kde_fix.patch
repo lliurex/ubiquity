@@ -1,6 +1,16 @@
---- /srv/svn/bionic/git/ubiquity/./ubiquity/frontend/kde_components/PartitionModel.py	2019-06-20 16:03:55.153353525 +0200
-+++ ./ubiquity/frontend/kde_components/PartitionModel.py	2019-04-08 20:07:45.000000000 +0200
-@@ -63,11 +63,7 @@
+From: Ubuntu Installer Team <ubuntu-installer@lists.ubuntu.com>
+Date: Thu, 11 Jul 2019 14:32:56 +0200
+Subject: partitionmodel_kde_fix
+
+---
+ ubiquity/frontend/kde_components/PartitionModel.py | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/ubiquity/frontend/kde_components/PartitionModel.py b/ubiquity/frontend/kde_components/PartitionModel.py
+index 853be47..29ca9fa 100644
+--- a/ubiquity/frontend/kde_components/PartitionModel.py
++++ b/ubiquity/frontend/kde_components/PartitionModel.py
+@@ -63,11 +63,7 @@ class PartitionModel(QtCore.QAbstractItemModel):
      def setData(self, index, value, role):
          item = index.internalPointer()
          if role == QtCore.Qt.CheckStateRole and index.column() == 3:

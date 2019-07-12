@@ -1,0 +1,192 @@
+From: raurodse <raurodse@gmail.com>
+Date: Fri, 12 Jul 2019 13:52:46 +0200
+Subject: add scrollbar to steps widget
+
+---
+ gui/qt/app.ui | 121 ++++++++++++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 106 insertions(+), 15 deletions(-)
+
+diff --git a/gui/qt/app.ui b/gui/qt/app.ui
+index f69b513..92de2e2 100644
+--- a/gui/qt/app.ui
++++ b/gui/qt/app.ui
+@@ -15,7 +15,16 @@
+   </property>
+   <widget class="QWidget" name="centralwidget">
+    <layout class="QGridLayout" name="gridLayout">
+-    <property name="margin">
++    <property name="leftMargin">
++     <number>0</number>
++    </property>
++    <property name="topMargin">
++     <number>0</number>
++    </property>
++    <property name="rightMargin">
++     <number>0</number>
++    </property>
++    <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <property name="spacing">
+@@ -40,7 +49,16 @@
+          </property>
+          <widget class="QWidget" name="progress_widget">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+-           <property name="margin">
++           <property name="leftMargin">
++            <number>0</number>
++           </property>
++           <property name="topMargin">
++            <number>0</number>
++           </property>
++           <property name="rightMargin">
++            <number>0</number>
++           </property>
++           <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+@@ -87,7 +105,16 @@
+        <item>
+         <widget class="QWidget" name="navigation" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+-          <property name="margin">
++          <property name="leftMargin">
++           <number>0</number>
++          </property>
++          <property name="topMargin">
++           <number>0</number>
++          </property>
++          <property name="rightMargin">
++           <number>0</number>
++          </property>
++          <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+@@ -140,7 +167,16 @@
+        <property name="spacing">
+         <number>0</number>
+        </property>
+-       <property name="margin">
++       <property name="leftMargin">
++        <number>0</number>
++       </property>
++       <property name="topMargin">
++        <number>0</number>
++       </property>
++       <property name="rightMargin">
++        <number>0</number>
++       </property>
++       <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+@@ -189,33 +225,79 @@
+         </widget>
+        </item>
+        <item>
+-        <widget class="QWidget" name="steps_widget" native="true">
++        <widget class="QScrollArea" name="ScrollSteps">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+-           <verstretch>0</verstretch>
++           <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+-         <layout class="QVBoxLayout" name="verticalLayout_5">
+-          <property name="spacing">
+-           <number>0</number>
++         <property name="styleSheet">
++          <string notr="true">QScrollArea {background-color:transparent;}</string>
++         </property>
++         <property name="frameShape">
++          <enum>QFrame::NoFrame</enum>
++         </property>
++         <property name="frameShadow">
++          <enum>QFrame::Sunken</enum>
++         </property>
++         <property name="widgetResizable">
++          <bool>true</bool>
++         </property>
++         <widget class="QWidget" name="steps_widget">
++          <property name="geometry">
++           <rect>
++            <x>0</x>
++            <y>0</y>
++            <width>150</width>
++            <height>444</height>
++           </rect>
+           </property>
+-          <property name="margin">
+-           <number>0</number>
++          <property name="sizePolicy">
++           <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
++            <horstretch>0</horstretch>
++            <verstretch>0</verstretch>
++           </sizepolicy>
+           </property>
+-         </layout>
++          <layout class="QVBoxLayout" name="verticalLayout_5">
++           <property name="spacing">
++            <number>0</number>
++           </property>
++           <property name="leftMargin">
++            <number>0</number>
++           </property>
++           <property name="topMargin">
++            <number>0</number>
++           </property>
++           <property name="rightMargin">
++            <number>0</number>
++           </property>
++           <property name="bottomMargin">
++            <number>0</number>
++           </property>
++          </layout>
++         </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="sidebar_footer_frame">
+          <property name="sizePolicy">
+-          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
++          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+-          <property name="margin">
++          <property name="leftMargin">
++           <number>0</number>
++          </property>
++          <property name="topMargin">
++           <number>0</number>
++          </property>
++          <property name="rightMargin">
++           <number>0</number>
++          </property>
++          <property name="bottomMargin">
+            <number>0</number>
+           </property>
+          </layout>
+@@ -227,7 +309,16 @@
+     <item row="0" column="1">
+      <widget class="QWidget" name="setup_page" native="true">
+       <layout class="QHBoxLayout" name="setup_page_layout">
+-       <property name="margin">
++       <property name="leftMargin">
++        <number>1</number>
++       </property>
++       <property name="topMargin">
++        <number>1</number>
++       </property>
++       <property name="rightMargin">
++        <number>1</number>
++       </property>
++       <property name="bottomMargin">
+         <number>1</number>
+        </property>
+        <item>
