@@ -1,0 +1,21 @@
+From: raurodse <raurodse@gmail.com>
+Date: Fri, 12 Jul 2019 14:44:34 +0200
+Subject: Increase size to webview
+
+---
+ ubiquity/frontend/kde_ui.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ubiquity/frontend/kde_ui.py b/ubiquity/frontend/kde_ui.py
+index 2b2c6fc..25d21cd 100644
+--- a/ubiquity/frontend/kde_ui.py
++++ b/ubiquity/frontend/kde_ui.py
+@@ -603,7 +603,7 @@ class Wizard(BaseFrontend):
+         from PyQt5.QtWebKitWidgets import QWebView
+ 
+         webView = QWebView()
+-        webView.setMinimumSize(700, 420)
++        webView.setMinimumSize(752, 530)
+         webView.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
+         return webView
+ 
