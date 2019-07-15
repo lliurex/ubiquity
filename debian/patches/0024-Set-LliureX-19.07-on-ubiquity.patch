@@ -14,7 +14,7 @@ index 25d21cd..2946c2f 100644
                              distro_release.endswith('"'):
                          distro_release = distro_release[1:-1]
  
-+        distron_name = "LliureX"
++        distro_name = "LliureX"
 +        distro_release = "19.07"
 +
          self.distro_name_label.setText(distro_name)
