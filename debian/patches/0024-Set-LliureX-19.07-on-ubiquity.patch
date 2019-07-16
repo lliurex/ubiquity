@@ -7,7 +7,7 @@ Subject: Set LliureX 19.07 on ubiquity
  1 file changed, 3 insertions(+)
 
 diff --git a/ubiquity/frontend/kde_ui.py b/ubiquity/frontend/kde_ui.py
-index 25d21cd..2946c2f 100644
+index 25d21cd..f07cbc6 100644
 --- a/ubiquity/frontend/kde_ui.py
 +++ b/ubiquity/frontend/kde_ui.py
 @@ -95,6 +95,9 @@ class UbiquityUI(QtWidgets.QMainWindow):
