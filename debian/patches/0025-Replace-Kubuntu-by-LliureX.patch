@@ -1,0 +1,49 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 16 Jul 2019 09:41:49 +0200
+Subject: Replace Kubuntu by LliureX
+
+---
+ gui/qt/app.ui                                    | 2 +-
+ gui/qt/stepPartAuto.ui                           | 2 +-
+ ubiquity/frontend/kde_components/PartitionBar.py | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/gui/qt/app.ui b/gui/qt/app.ui
+index 92de2e2..4c498de 100644
+--- a/gui/qt/app.ui
++++ b/gui/qt/app.ui
+@@ -191,7 +191,7 @@
+           <item>
+            <widget class="QLabel" name="distro_name_label">
+             <property name="text">
+-             <string>Kubuntu</string>
++             <string>LliureX</string>
+             </property>
+             <property name="scaledContents">
+              <bool>false</bool>
+diff --git a/gui/qt/stepPartAuto.ui b/gui/qt/stepPartAuto.ui
+index 01d6d4c..6ad046e 100644
+--- a/gui/qt/stepPartAuto.ui
++++ b/gui/qt/stepPartAuto.ui
+@@ -31,7 +31,7 @@
+    <item>
+     <widget class="QLabel" name="part_auto_comment_label">
+      <property name="text">
+-      <string>Where would you like to install Kubuntu?</string>
++      <string>Where would you like to install LliureX?</string>
+      </property>
+     </widget>
+    </item>
+diff --git a/ubiquity/frontend/kde_components/PartitionBar.py b/ubiquity/frontend/kde_components/PartitionBar.py
+index fc6e698..be104cc 100644
+--- a/ubiquity/frontend/kde_components/PartitionBar.py
++++ b/ubiquity/frontend/kde_components/PartitionBar.py
+@@ -250,7 +250,7 @@ class PartitionsBar(QtWidgets.QWidget):
+         if part.next is None or part.next.index != -1:
+             # if our resize partition is at the end or the next one is not
+             # free space
+-            p = Partition('Kubuntu', new_size, 'auto')
++            p = Partition('LliureX', new_size, 'auto')
+             p.next = part.next
+             part.next = p
+ 
