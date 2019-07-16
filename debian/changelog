@@ -1,3 +1,9 @@
+ubiquity (18.04.14.12+lliurex8) bionic; urgency=medium
+
+  * Fix typo
+
+ -- Raul Rodrigo Segura <raurodse@gmail.com>  Tue, 16 Jul 2019 08:14:27 +0200
+
 ubiquity (18.04.14.12+lliurex7) bionic; urgency=medium
 
   * Modify size to webview
