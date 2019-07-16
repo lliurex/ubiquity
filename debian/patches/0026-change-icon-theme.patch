@@ -1,0 +1,20 @@
+From: raurodse <raurodse@gmail.com>
+Date: Tue, 16 Jul 2019 13:49:13 +0200
+Subject: change-icon-theme
+
+---
+ ubiquity/frontend/kde_ui.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/ubiquity/frontend/kde_ui.py b/ubiquity/frontend/kde_ui.py
+index f07cbc6..cbb3876 100644
+--- a/ubiquity/frontend/kde_ui.py
++++ b/ubiquity/frontend/kde_ui.py
+@@ -1445,6 +1445,6 @@ class Wizard(BaseFrontend):
+     # use breeze icons if using Plasma 5
+     def getIconTheme(self):
+         if os.path.isfile("/usr/bin/plasmashell"):
+-            return "breeze"
++            return "lliurex"
+         else:
+             return "oxygen"
