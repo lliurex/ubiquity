@@ -1,63 +1,26 @@
-ubiquity (18.04.14.12+lliurex10) bionic; urgency=medium
+ubiquity (18.04.14.14+lliurex1) bionic; urgency=medium
 
-  * Fixed extra packages file path
+  * Merge with upstream
 
- -- Hector Garcia Huerta <hectorgh@gmail.com>  Wed, 24 Jul 2019 10:23:06 +0200
+ -- Daniel Duran Vecino <raurodse@gmail.com>  Wed, 03 Jun 2020 18:41:31 +0200
 
-ubiquity (18.04.14.12+lliurex9) bionic; urgency=medium
+ubiquity (18.04.14.14) bionic; urgency=medium
 
-  * Change icon theme
+  * Automatic update of included source packages: flash-kernel
+    3.98ubuntu11~18.04.1.
 
- -- Raul Rodrigo Segura <raurodse@gmail.com>  Tue, 16 Jul 2019 13:50:16 +0200
+ -- Łukasz 'sil2100' Zemczak <lukasz.zemczak@ubuntu.com>  Mon, 03 Feb 2020 11:00:12 +0100
 
-ubiquity (18.04.14.12+lliurex8) bionic; urgency=medium
+ubiquity (18.04.14.13) bionic; urgency=medium
 
-  * Fix typo
+  * d/control: Recommend grub-efi-amd64 or grub-efi-ia32, not the transitional
+    grub-efi which is no longer installed by default. (LP: #1848880)
+  * Automatic update of included source packages: apt-setup
+    1:0.104ubuntu5.1, console-setup 1.178ubuntu2.9, flash-kernel
+    3.90ubuntu3.18.04.2, hw-detect 1.117ubuntu6.18.04.1, partman-base
+    192ubuntu1.2.
 
- -- Raul Rodrigo Segura <raurodse@gmail.com>  Tue, 16 Jul 2019 08:14:27 +0200
-
-ubiquity (18.04.14.12+lliurex7) bionic; urgency=medium
-
-  * Modify size to webview
-  * Ignore read lsb_release to show distro name
-
- -- Raul Rodrigo Segura <raurodse@gmail.com>  Mon, 15 Jul 2019 12:18:31 +0200
-
-ubiquity (18.04.14.12+lliurex6) bionic; urgency=medium
-
-  * Changed lliurex-extra-packages file location
-
- -- Hector Garcia Huerta <hectorgh@gmail.com>  Tue, 02 Jul 2019 14:39:24 +0200
-
-ubiquity (18.04.14.12+lliurex5) bionic; urgency=medium
-
-  * Added neon efi patch
-
- -- Hector Garcia Huerta <hectorgh@gmail.com>  Mon, 01 Jul 2019 15:31:55 +0200
-
-ubiquity (18.04.14.12+lliurex4) bionic; urgency=medium
-
-  * Translation changes
-
- -- Hector Garcia Huerta <hectorgh@gmail.com>  Fri, 21 Jun 2019 13:45:14 +0200
-
-ubiquity (18.04.14.12+lliurex3) bionic; urgency=medium
-
-  * Fixed kde partition panel bug
-
- -- Hector Garcia Huerta <hectorgh@gmail.com>  Thu, 20 Jun 2019 16:27:21 +0200
-
-ubiquity (18.04.14.12+lliurex2) bionic; urgency=medium
-
-  * Valencian working
-
- -- Raul Rodrigo Segura <raurodse@gmail.com>  Wed, 19 Jun 2019 23:32:45 +0200
-
-ubiquity (18.04.14.12+lliurex1) bionic; urgency=medium
-
-  * Added parches to work on LliureX
-
- -- Raul Rodrigo Segura <raurodse@gmail.com>  Wed, 19 Jun 2019 16:53:16 +0200
+ -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Tue, 03 Dec 2019 23:23:22 +1300
 
 ubiquity (18.04.14.12) bionic; urgency=medium
 
