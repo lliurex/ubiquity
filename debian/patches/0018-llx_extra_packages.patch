@@ -7,7 +7,7 @@ Subject: llx_extra_packages
  1 file changed, 17 insertions(+)
 
 diff --git a/scripts/plugininstall.py b/scripts/plugininstall.py
-index dc82be4..c6954c6 100755
+index dc82be4..411797e 100755
 --- a/scripts/plugininstall.py
 +++ b/scripts/plugininstall.py
 @@ -101,6 +101,13 @@ class Install(install_misc.InstallBase):
