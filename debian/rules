@@ -255,6 +255,7 @@ binary-indep: install-stamp
 	dh_installman
 	dh_lintian
 	dh_link
+	dh_scour
 	dh_strip
 	dh_compress
 	dh_fixperms
@@ -297,6 +298,7 @@ binary-arch: tests install-stamp
 	dh_installman
 	dh_lintian
 	dh_link
+	dh_scour
 	dh_strip
 	dh_compress
 	dh_fixperms
