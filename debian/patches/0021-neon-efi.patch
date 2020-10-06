@@ -6,16 +6,18 @@ Subject: neon-efi
  d-i/source/grub-installer/grub-installer | 4 ++++
  1 file changed, 4 insertions(+)
 
-diff --git a/d-i/source/grub-installer/grub-installer b/d-i/source/grub-installer/grub-installer
-index 114cdb8..47a7291 100755
 --- a/d-i/source/grub-installer/grub-installer
 +++ b/d-i/source/grub-installer/grub-installer
-@@ -193,6 +193,10 @@ update_grub () {
+@@ -193,6 +193,14 @@
  		db_progress STOP
  		exit 1
  	fi
 +	if [ -e /target/boot/efi/EFI/neon/grub.cfg ]; then
 +		echo "grub-installer: copying boot/efi/EFI/neon/grub.cfg to boot/efi/EFI/ubuntu for hardcoded grub path"
++		if [ ! -d /target/boot/efi/EFI/ubuntu ]; then
++		    echo "grub-installer: creating boot/efi/EFI/ubuntu"
++		    mkdir -p /target/boot/efi/EFI/ubuntu
++		fi
 +		cp /target/boot/efi/EFI/neon/grub.cfg /target/boot/efi/EFI/ubuntu/grub.cfg
 +	fi
  }
