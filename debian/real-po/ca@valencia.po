@@ -1579,14 +1579,14 @@ msgstr "No està disponible perquè no hi ha connexió a Internet."
 #: ../ubiquity.templates:232001
 #, fuzzy
 msgid "What apps would you like to install to start with?"
-msgstr "On voleu instal·lar el Kubuntu?"
+msgstr "On voleu instal·lar el Lliurex?"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:233001
 #, fuzzy
 msgid "Which applications would you like to start with?"
-msgstr "On voleu instal·lar el Kubuntu?"
+msgstr "On voleu instal·lar el Lliurex?"
 
 #. Type: text
 #. Description
