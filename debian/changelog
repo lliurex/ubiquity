@@ -1,3 +1,9 @@
+ubiquity (18.04.14.15+lliurex1) bionic; urgency=medium
+
+  * Merge with upstream.
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Thu, 08 Oct 2020 11:11:20 +0200
+
 ubiquity (18.04.14.15) bionic; urgency=medium
 
   * Automatic update of included source packages: flash-kernel
