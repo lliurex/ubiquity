@@ -112,23 +112,18 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"Es posible que quiera leer las <a href=\"release-notes\">notas de "
-"publicación</a> o <a href=\"update\">actualizar este instalador</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
 msgstr ""
-"Es posible que quiera leer las <a href=\"release-notes\">notas de "
-"publicación</a>."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
 msgstr ""
-"Es posible que quiera <a href=\"update\">actualizar este instalador</a>."
 
 #. Type: text
 #. Description
