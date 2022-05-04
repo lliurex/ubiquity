@@ -114,19 +114,19 @@ msgstr "Instal·la ${RELEASE}"
 msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "<a></a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:14001
 msgid "You may wish to read the <a href=\"release-notes\">release notes</a>."
-msgstr ""
+msgstr "<a></a>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:15001
 msgid "You may wish to <a href=\"update\">update this installer</a>."
-msgstr ""
+msgstr "<a></a>"
 
 #. Type: text
 #. Description
